@@ -27,6 +27,11 @@ We don't want to be strict - use your imagination!
 **We're hoping teams will come up with creative solutions for this!**
 
 HOWEVER - if you need a fallback then here is a fallback that you can do:
+1) Agree on what the team name is where you're getting you data from. You'll use it in the api calls below
+2) Agree on what the data will look like (What is the Json Format)
+3) Agree on how the data will change so your script knows it's new! (Maybe a boolean that is false until the official run-through)
+3) Make these calls below (substitute the team names) and make sure it's working
+** IMPORTANT! Please keep api requests to every 5 seconds - if we go lower we may hit API request limits...**
 Getting Data:
 ```
 curl -X GET \
@@ -56,3 +61,7 @@ No problem! Here are some random ideas that we've come up with:
 * A python script that displays the matrix for 10 seconds
 * A selinium project that navigates to a funny picture of a cat on google photos
 * A website that shakes around for a duration of 10 seconds
+
+# I'm too new at this - do you have an example project already set up?
+Here's a sample android project: https://github.com/willowtreeapps/capwic-android
+Here's a sample perl script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.pl
