@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "09c3d968-faba-409f-9f02-f0ce8e6b1f64",
+		"name": "Capwic-Production-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Save Data",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"alanisawesome\": {\n    \"name\": \"Alan Turing\",\n    \"birthday\": \"June 23, 1912\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/{{yourteamhere}}.json",
+					"protocol": "https",
+					"host": [
+						"capwic-jmu-2019",
+						"firebaseio",
+						"com"
+					],
+					"path": [
+						"capwic-jmu-2019",
+						"teamdata",
+						"{{yourteamhere}}.json"
+					]
+				},
+				"description": "Use this api call to save data"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"alanisawesome\": {\n    \"name\": \"Alan Turing\",\n    \"birthday\": \"June 23, 1912\"\n  }\n}"
+				},
+				"url": {
+					"raw": "https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/{{theirteamhere}}.json",
+					"protocol": "https",
+					"host": [
+						"capwic-jmu-2019",
+						"firebaseio",
+						"com"
+					],
+					"path": [
+						"capwic-jmu-2019",
+						"teamdata",
+						"{{theirteamhere}}.json"
+					]
+				},
+				"description": "Use this api to get data from another team"
+			},
+			"response": []
+		}
+	]
+}
