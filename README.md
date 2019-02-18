@@ -10,12 +10,17 @@ First 15 minutes:
 * Split into teams (a team of 1 is fine)
 * Find a team to consume data from
 * Find a different team to consume your data
-
+* **MAKE SURE YOU AGREE ON WHAT THE TRIGGER IS**
+** In other words - a team will need to create data - but you'll need to know what to trigger off of to start your action. An easy thing to do would be to post an object like this ```{"status":"off"}``` and then change it to this when it's ready ```{"status":"on"}```
 Next 1.75 hours:
 * Build anything that you have the skills to create. It doesn't have to have a UI but we encourage you to build something fun to look at since that'll make the chain more enganging
 
 Starting at the end of Hour 2:
 * We'll start trying to run the full chain. Hopefully it'll work the first time but if not we have an hour so we can do it!
+
+# FAQ
+
+## Can I use something I've already built?
 
 ## What are the requirements around what I can build?
 **The only requirement we have is that your total creation should run shorter than a minute.**
