@@ -3,7 +3,7 @@
 Hello and welcome to the first ever `Capwic Collaborative Code Jam` hosted by WillowTree and JMU!
 
 ## Idea of the event
-We're all going to try to build a digital-ish [Rube Goldberg Machine](https://www.youtube.com/watch?v=Qtp9Aur8zNU) together. So one person/team will start the chain and then it will chain all the way to the end where we'll trigger [TODO figure this out] 
+We're all going to try to build a digital-ish [Rube Goldberg Machine](https://www.youtube.com/watch?v=RBOqfLVCDv8) together. So one person/team will start the chain and then it will chain all the way to the end where we'll trigger a celebratory video 
 
 ## Day Of Details
 First 15 minutes:
