@@ -29,11 +29,14 @@ PREVIOUS_TEAM_NAME = "NAME-OF-TEAM-PRECEDING-YOURS-IN-CHAIN"
 DEFAULT_BASE_URL = "https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/"
 DATA_EXTENSION = ".json"
 
+#Key-value pair to be recieved from the previous team when they are ready
 TRIGGER_KEY = "status"
 TRIGGER_VALUE = "on"
 
+#Messaged logged to console when the proper trigger key-value pair is recieved
 READY_MESSAGE = "!!!GO GO GO!!!"
 
+#Delay in seconds between API calls
 REQUEST_DELAY_SECONDS = 5
 
 #-------------------------------------------------------------------------------
