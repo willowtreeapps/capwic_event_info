@@ -75,7 +75,7 @@ checkTrigger ()
 #   Use this to trigger the next component in the Rube Goldberg Machine!
 #
 # example:
-#   sendTrigger 'bears' '{"isWinning":1}' will update the bears.json file in
+#   sendTrigger 'bison' '{"isWinning":1}' will update the bison.json file in
 #   firebase to hold the JSON data {"isWinning":1}
 sendTrigger ()
 {
