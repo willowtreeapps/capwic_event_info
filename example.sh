@@ -31,8 +31,8 @@ declare -r TRIGGER_FILE='trigger.txt'
 #   job and wait for ${TRIGGER_FILE} to appear to know that it's finished.
 #
 # example:
-#   checkTrigger dolphins '{"isWinning": 1}' will create ${TRIGGER_FILE} and
-#   return as soon as dolphins.json in firebase contains {"isWinning": 1}
+#   checkTrigger dukes '{"isWinning": 1}' will create ${TRIGGER_FILE} and
+#   return as soon as dukes.json in firebase contains {"isWinning": 1}
 checkTrigger ()
 {
     declare -r TEAM=${1}
