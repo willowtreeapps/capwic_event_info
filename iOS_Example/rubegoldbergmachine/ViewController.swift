@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     
     // Call this to notify the next team in line
     func sendTrigger() {
-        // TODO: Update these parameters the specify the name of the document you want to update
+        // TODO: Update these parameters to specify the name of the document you want to update
         // along with its JSON contents (specified as the dictionary type: [String: Any])
         self.client.send(doc: "team.json", data: ["KEY": "VALUE"]) { (err) in
             if let err = err {
