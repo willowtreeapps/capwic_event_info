@@ -11,6 +11,8 @@
 # Date: 2019/03/07
 #######################################################
 
+# Note: This program is incomplete. There are 4 TODOs for you to address!
+
 set -o errexit -o nounset -o pipefail
 
 # TRIGGER_FILE will store the name of a file whose presence
@@ -29,8 +31,8 @@ declare -r TRIGGER_FILE='trigger.txt'
 #   job and wait for ${TRIGGER_FILE} to appear to know that it's finished.
 #
 # example:
-#   checkTrigger tigers '{"isWinning": 1}' will create  ${TRIGGER_FILE} and
-#   return as soon as tigers.json in firebase contains {"isWinning": 1}
+#   checkTrigger dolphins '{"isWinning": 1}' will create ${TRIGGER_FILE} and
+#   return as soon as dolphins.json in firebase contains {"isWinning": 1}
 checkTrigger ()
 {
     declare -r TEAM=${1}
@@ -51,6 +53,9 @@ checkTrigger ()
         #
         #     This may be helpful ;)
         #     https://stackoverflow.com/questions/2237080/how-to-compare-strings-in-bash
+        #
+        #     Also, just so you know, jq (https://stedolan.github.io/jq/) is a good command-line
+        #     utility for processing json data (but you probably won't need to use it here)
         #
         # if . . .; then
         #     touch ${TRIGGER_FILE} # IMPORTANT: This is how we notify our main process that the trigger has fired!
