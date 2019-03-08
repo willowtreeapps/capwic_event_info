@@ -50,7 +50,7 @@ curl -X GET \
 
 Uploading Data:
 ```
-curl -X POST \
+curl -X PUT \
   'https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/<their_team_here>.json' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
@@ -73,6 +73,7 @@ No problem! Here are some random ideas that we've come up with:
 # I'm too new at this - do you have an example project already set up?
 * Here's a sample android project: https://github.com/willowtreeapps/capwic-android
 * Here's a sample bash script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.sh
+* Here's a sample golang script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.go
 * Here's a sample iOS project: https://github.com/willowtreeapps/capwic_event_info/blob/master/iOS_Example
 * Here's a sample perl script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.pl
 * Here's a sample python script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.py
