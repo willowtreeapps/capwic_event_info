@@ -41,9 +41,8 @@ function checkTrigger(doc) {
             return console.log(`check trigger received non-200 status code: ${res.statusCode}`)
         }
 
-        console.log(`RECEIVED BODY: ${JSON.stringify(body)}`)
-
-        if (body.trigger === 1) {      // TODO: CHANGE THIS LINE TO IMPLEMENT YOUR OWN CUSTOM CHECK
+        console.log(`RECEIVED CHECK TRIGGER RESPONSE BODY: ${JSON.stringify(body)}`)
+        if (body && body.trigger === 1) {   // TODO: CHANGE THIS LINE TO IMPLEMENT YOUR OWN CUSTOM CHECK
             clearInterval(intervalObj) // Important: Cancel the polling now that we've been triggered
             doFun()                    // Kick off the fun!
         } else {
@@ -85,7 +84,7 @@ function sendTrigger(docName, docContents) {
             return console.log(`send trigger received non-200 status code: ${res.statusCode}`)
         }
 
-        console.log(`RECEIVED BODY: ${JSON.stringify(body)}`)
+        console.log(`RECEIVED SEND TRIGGER RESPONSE BODY: ${JSON.stringify(body)}`)
         console.log("Trigger Sent Successfully!")
     })
 }
