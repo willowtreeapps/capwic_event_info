@@ -75,5 +75,6 @@ No problem! Here are some random ideas that we've come up with:
 * Here's a sample bash script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.sh
 * Here's a sample golang script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.go
 * Here's a sample iOS project: https://github.com/willowtreeapps/capwic_event_info/blob/master/iOS_Example
+* Here's a sample node project: https://github.com/willowtreeapps/capwic_event_info/blob/master/node-example
 * Here's a sample perl script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.pl
 * Here's a sample python script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.py
