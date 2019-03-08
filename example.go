@@ -36,12 +36,10 @@ func main() {
 		Timeout: 10 * time.Second,
 	}
 
-	// This section of the code kicks off a polling job that checks firebase
-	// every 5 seconds. When a document matching our custom condition is met,
-	// we send a message on the 'done' channel and the program proceeds.
-	done := make(chan bool, 1)
-	go poll(client, "team.json", done) // TODO: type in the name of the document you wish to fetch from firebase (your trigger)
-	<-done                             // block until we get triggered (which is detected by polling)
+	// This section of the code blocks on a polling job that checks firebase
+	// every 5 seconds and returns once our custom condition is met.
+	// TODO: type in the name of the document you wish to fetch from firebase (your trigger)
+	poll(client, "team.json")
 
 	// TODO: Do something fun here!
 	fmt.Println("Do The Fun 🤠")
@@ -57,9 +55,9 @@ func main() {
 }
 
 // poll runs a job every 5 seconds that calls checkTrigger and
-// processes the results. It notifies the main thread by way of
-// the 'done' channel when the trigger check finally succeeds.
-func poll(client *http.Client, doc string, done chan<- bool) {
+// processes the results. It returns when the trigger condition is
+// finally met.
+func poll(client *http.Client, doc string) {
 	ticker := time.NewTicker(5 * time.Second)
 	defer ticker.Stop()
 	for range ticker.C {
@@ -68,16 +66,17 @@ func poll(client *http.Client, doc string, done chan<- bool) {
 		} else if !triggered {
 			fmt.Println("Trigger condition not yet met . . .")
 		} else {
-			// we've been triggered! Notify the main thread and break out
-			// of this endless loop.
-			done <- true
+			// we've been triggered!
+			// Time to break out of this continous loop so the program can proceed.
 			break
 		}
 	}
 }
 
 // checkTrigger reads the specified document from firebase and
-// returns true, nil if it meets our custom condition.
+// returns true, nil if it meets our custom condition. If an error
+// occurs it returns false, error. If no error occurs and the condition
+// is not met, it returns false, nil.
 func checkTrigger(client *http.Client, doc string) (bool, error) {
 	url := baseURL + "/" + doc
 	req, err := http.NewRequest("GET", url, nil)
@@ -103,13 +102,17 @@ func checkTrigger(client *http.Client, doc string) (bool, error) {
 	}
 
 	// TODO: Check whether the trigger condition is met!
+	// result is a map[string]interface{} holding the contents of the
+	// provided doc name.
 	if value, ok := (result["trigger"]).(float64); ok && value == 1 {
-		return true, nil
+		return true, nil // Condition Met
 	}
 
-	return false, nil
+	return false, nil // Condition Not Met
 }
 
+// sendTrigger writes a document to firebase with the specified name and content.
+// use it to trigger the next component in line.
 func sendTrigger(client *http.Client, doc string, content map[string]interface{}) error {
 	url := baseURL + "/" + doc
 
@@ -128,13 +131,14 @@ func sendTrigger(client *http.Client, doc string, content map[string]interface{}
 	if err != nil {
 		return fmt.Errorf("network error: %v", err)
 	}
+
 	defer resp.Body.Close()
+	// drain the response body so that the connection gets released back to the system
+	_, _ = ioutil.ReadAll(resp.Body)
 
 	if resp.StatusCode != 200 {
 		return fmt.Errorf("received non-200 status code: %v", resp.StatusCode)
 	}
 
-	// drain the response body so that the connection gets released back to the system
-	_, _ = ioutil.ReadAll(resp.Body)
 	return nil
 }
