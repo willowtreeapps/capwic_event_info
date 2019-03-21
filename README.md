@@ -11,7 +11,7 @@ First 15 minutes:
 * Find a team to consume data from
 * Find a different team to consume your data
 * **MAKE SURE YOU AGREE ON WHAT THE TRIGGER IS**
-** In other words - a team will need to create data - but you'll need to know what to trigger off of to start your action. An easy thing to do would be to post an object like this ```{"status":"off"}``` and then change it to this when it's ready ```{"status":"on"}```
+  * In other words - a team will need to create data - but you'll need to know what to trigger off of to start your action. We're recommending that you senda GET request to this URL (https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/capwic_willowtree.json) and listen for your team name  ```{"trigger":"my_team"}``` and then change it to the next team when your program is done ```{"trigger":"next_team"}```
 
 Next 1.75 hours:
 * Build anything that you have the skills to create. It doesn't have to have a UI but we encourage you to build something fun to look at since that'll make the chain more engaging
@@ -32,18 +32,15 @@ We don't want to be strict - use your imagination!
 * You can even use fun physical interactions (Just have a line of people where one highfive leads to another highfive and so one until finally it leads to someone pressing enter on a keyboard)
 
 ## How can I get data from a different team?
-**We're hoping teams will come up with creative solutions for this!**
-
-HOWEVER - if you need a fallback then here is a fallback that you can do:
-1) Agree on what the team name is where you're getting you data from. You'll use it in the api calls below
-2) Agree on what the data will look like (What is the Json Format)
-3) Agree on how the data will change so your script knows it's new! (Maybe a boolean that is false until the official run-through)
+Here's what we recommend that most people do. You can come up with your own method for coordinating if you want to be creative though! (Note that JMU's wireless network limits computer->computer communication so keep that in mind)
+1) Agree on what your team name is. You'll use it in the api calls below
+2) Agree on what the next team's name is.
 3) Make these calls below (substitute the team names) and make sure it's working
 ** IMPORTANT! Please keep api requests to a minimum of every 5 seconds - if we go lower we may hit API request limits...**
 Getting Data:
 ```
 curl -X GET \
-  'https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/<their_team_here>.json' \
+  'https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/capwic_willowtree.json' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache'
 ```
@@ -51,26 +48,24 @@ curl -X GET \
 Uploading Data:
 ```
 curl -X PUT \
-  'https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/<their_team_here>.json' \
+  'https://capwic-jmu-2019.firebaseio.com/capwic-jmu-2019/teamdata/capwic_willowtree.json' \
   -H 'Content-Type: application/json' \
   -H 'cache-control: no-cache' \
-  -d '{
-  "any_json": {
-    "data": "and values",
-    "you_want": "here"
-  }
-}'
+  -d '{ "trigger": "<next_team_name_here>" }'
 ```
 
 # I need some ideas - I'm not sure what to build
-No problem! Here are some random ideas that we've come up with:
+No problem! Here are some random ideas that we've come up with: 
+(Note that these are mostly random and silly but please feel free to do something that represents who you are or the story you want to tell)
 * An Android app that counts down
 * An iOS app that has a character walk around a maze
 * A python script that displays the matrix for 10 seconds
 * A selinium project that navigates to a funny picture of a cat on google photos
 * A website that shakes around for a duration of 10 seconds
+* A real life, in person, rock/paper/scissors tournament where the loser gets upset and bangs their head against the keyboard triggering the next event
 
 # I'm too new at this - do you have an example project already set up?
+We do! Note that you'll need to tweak the triggers to do what we suggest above. Feel free to reach out to someone from WillowTree for help!
 * Here's a sample android project: https://github.com/willowtreeapps/capwic-android
 * Here's a sample bash script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.sh
 * Here's a sample golang script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.go
