@@ -29,14 +29,14 @@ public class Main {
                 Trigger triggerObj = new Gson().fromJson(responseString, Trigger.class);
 
                 //TODO change this to be your team name
-                String previousTeam = "INSERT_TEAM_HERE";
+                String yourTeam = "INSERT_TEAM_HERE";
 
-                System.out.println("Looking for our team: "+previousTeam);
+                System.out.println("Looking for our team: "+yourTeam);
                 System.out.println("Found this payload: "+responseString);
 
                 //Compare the trigger to your team name.
                 //If it matches then exit the loop!
-                if(previousTeam.equalsIgnoreCase(triggerObj.trigger)) {
+                if(yourTeam.equalsIgnoreCase(triggerObj.trigger)) {
                     break;
                 }
 
