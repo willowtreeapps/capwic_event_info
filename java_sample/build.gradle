@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+version = '1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'com.squareup.okhttp3:okhttp:3.14.0'
+    compile 'com.google.code.gson:gson:2.8.5'
+}
+
+task customUberJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.willowtree.capwic.Main'
+    }
+    baseName = 'uber-jar'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
