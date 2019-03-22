@@ -26,7 +26,7 @@ Starting at the end of Hour 2:
 Absolutely! This is about working together to build something fun so shortcuts are encouraged! Honestly, the more familiar you are with it, the better.
 
 ## What are the requirements around what I can build?
-**The only requirement we have is that your total creation should run shorter than a minute.**
+**The only requirement we have is that your total creation should run shorter than 30 seconds.**
 We don't want to be strict - use your imagination!
 * You can use any language or framework
 * You can even use fun physical interactions (Just have a line of people where one highfive leads to another highfive and so one until finally it leads to someone pressing enter on a keyboard)
