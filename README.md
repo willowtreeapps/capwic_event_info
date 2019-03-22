@@ -66,6 +66,7 @@ No problem! Here are some random ideas that we've come up with:
 
 # I'm too new at this - do you have an example project already set up?
 We do! Note that you'll need to tweak the triggers to do what we suggest above. Feel free to reach out to someone from WillowTree for help!
+* Here's a sample java project: https://github.com/willowtreeapps/capwic_event_info/tree/master/java_sample
 * Here's a sample android project: https://github.com/willowtreeapps/capwic-android
 * Here's a sample bash script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.sh
 * Here's a sample golang script: https://github.com/willowtreeapps/capwic_event_info/blob/master/example.go
