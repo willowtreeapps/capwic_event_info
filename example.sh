@@ -129,4 +129,4 @@ rm ${TRIGGER_FILE}
 ### TODO: Notify the next component in the Rube Goldberg Machine.
 # sendTrigger 'TEAM' '{"KEY":"VALUE"}'
 
-echo "done"
+echo "done for real"
